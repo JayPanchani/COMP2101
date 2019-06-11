@@ -24,5 +24,3 @@ echo "display 10 largest files in the system:"
 echo "=========================================="
 sleep 5
 find / 2>/dev/null -type f -exec ls -l --block-size=M {} + | sort -rh -k 5 | head -n 1 | awk '{print $5, $3, $9}'
-
-du -ha | sort -h -r | head -n 10
