@@ -12,12 +12,22 @@
 
 # roll the dice and display the result
 echo "
-Rolling...
+
+#########################################
+Two six side dice are Rolling...
+#########################################
+
 $(( RANDOM % 6 + 1)), $(( RANDOM % 6 + 1 )) rolled
 
-now rolling....
+#########################################
+Five six side dice are now rolling....
+#########################################
+
 $(( RANDOM % 6 + 1)),$(( RANDOM % 6 + 1)),$(( RANDOM % 6 + 1)),$(( RANDOM % 6 + 1)),$(( RANDOM % 6 + 1)) rolled
 
-now rolling....
-$(( RANDOM % 20 + 1)),$(( RANDOM % 20 + 1)) rolled
+#########################################
+one twenty side dice is now rolling....
+#########################################
+
+$(( RANDOM % 20 + 1)) rolled
 "
