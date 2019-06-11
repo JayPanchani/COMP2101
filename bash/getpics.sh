@@ -11,6 +11,7 @@
 # make a Pictures directory if we don't have one - assumes we have a home directory
 #test -d ~/Pictures || mkdir ~/Pictures
 
+echo "zip files:"
 # download a zipfile of pictures to our Pictures directory if it isn't already there - assumes you are online
 test -f ~/Pictures/pics.zip || wget -q -O ~/Pictures/pics.zip http://zonzorp.net/pics.zip
 
@@ -24,11 +25,11 @@ The Pictures directory uses $(du -sh ~/Pictures|awk '{print $1}') space on the d
 EOF
 
 
-echo "one more file:"
+echo "Tar file:"
 #download tar file from online soruce
 test -f ~/Pictures/pics.tgz || wget -q -O ~/Pictures/pics.tgz http://zonzorp.net/pics.tgz
 #unpack tar file into ~/picture directory and delete the tar file
-test -f ~/Pictures/pics.tgz && tar -C ~/Pictures -xvf ~/Pictures/pics.tgz && rm ~/Pictures/pics.tgz
+test -f ~/Pictures/pics.tgz && tar -C ~/Pictures --extract --file  ~/Pictures/pics.tgz && rm ~/Pictures/pics.tgz
 
 # Make a report on what we have in the Pictures directory
 test -d ~/Pictures && cat <<EOF
