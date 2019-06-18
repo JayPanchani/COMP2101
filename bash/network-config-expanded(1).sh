@@ -43,7 +43,7 @@ External Name : $external_name
 EOF
 
 # Define the interface being summarized
-interface=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
+interface="eno1"
 
 # Find an address and hostname for the interface being summarized
 # we are assuming there is only one IPV4 address assigned to this interface
@@ -56,7 +56,7 @@ network_number=$(cut -d / -f 1 <<<"$network_address")
 network_name=$(getent networks $network_number|awk '{print $1}')
 
 cat <<EOF
-Interface : $interface
+Interface $interface:
 ===============
 Address         : $ipv4_address
 Name            : $ipv4_hostname
@@ -64,3 +64,4 @@ Network Address : $network_address
 Network Name    : $network_name
 
 EOF
+
