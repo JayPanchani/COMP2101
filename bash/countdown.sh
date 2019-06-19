@@ -31,7 +31,7 @@ numberOfSleeps=10 # how many sleeps to wait for before quitting for inactivity
 #
 function error-message {
 
-#Task : It prints programName and first args 
+#Task : It prints programName and first args
 #	> redirect standard output (implicit 1>)
 #	& what comes next is a file descriptor, not a file (only for right hand side of >)
 #	2 stderr file descriptor number

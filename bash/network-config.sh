@@ -37,7 +37,7 @@ Interface=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
 LANAddress=$(ip a s $Interface|awk '/inet /{gsub(/\/.*/,"");print $2}')
 LANHostname=$(getent hosts $LANAddress | awk '{print $2}')
 ExternalIP=$(curl -s icanhazip.com)
-#ExternalName=$(getent hosts $ExternalIP | awk '{print $2}')
+ExternalName=$(getent hosts $ExternalIP | awk '{print $2}')
 RouterAddress=$(ip route | grep 'default' |awk '{print $3}')
 RouterHostname=$(getent hosts $RouterAddress | awk '{print $2}')
 NetworkNumber=$(route -n | awk '/255.255.255.0/''{print $1}')
@@ -48,6 +48,7 @@ Interface :$Interface
 LANAddress :$LANAddress
 LANHostname :$LANHostname
 ExternalIP :$ExternalIP
+Externalname   :$ExternalName
 RouterAddress :$RouterAddress
 RouterHostname :$RouterHostname
 NetworkAddress :$NetworkNumber
